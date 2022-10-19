@@ -67,7 +67,7 @@ const calcular = () => {
     if (operacao == 'somar') {
         resultado = valor1 + valor2;
     } else if (operacao == 'subtrair') {
-        resultado= valor1 - valor2;
+        resultado = valor1 - valor2;
     } else if (operacao == 'multiplicar') {
         resultado = valor1 * valor2;
     } else {
@@ -79,39 +79,42 @@ const calcular = () => {
 
 const limparCalculadora = () => {
     document.querySelector('#valor1').value = '';
-    document.querySelector('#valor2').value= '';
-    document.querySelector('#resultado').value= '';
+    document.querySelector('#valor2').value = '';
+    document.querySelector('#resultado').value = '';
 }
 
 
 //exercicio 6
 
-const digitar =(valor) =>{
+const digitar = (valor) => {
     let visor = document.querySelector('#visor');
     visor.value += valor;
 }
 
-const apagar =() => {
+const apagar = () => {
     let visor = document.querySelector('#visor');
-    while(true){
-        if(visor.value.length <= 1){
+    while (true) {
+        if (visor.value.length <= 1) {
             visor.value = '';
             break;
         }
-
-        let ultimoCaractere = visor.value.substr(visor.value.length-1, 1);
-        visor.value = visor.value.substr(1, visor.value.length-1);
-        if(ultimoCaractere != ' '){
+        let ultimoCaractere = visor.value.substr(visor.value.length - 1, 1);
+        if (ultimoCaractere == ' ') {
+            visor.value = visor.value.substr(0, visor.value.length - 3);
+            break;
+        } else if (ultimoCaractere != ' ') {
+            visor.value = visor.value.substr(0, visor.value.length - 1);
             break;
         }
     }
 }
 
-const limparVisor = () =>{
+const limparVisor = () => {
     let visor = document.querySelector('#visor');
     visor.value = '';
 }
 
-const calcularResultado =() => {
-    
+const calcularResultado = () => {
+    let visor = document.querySelector('#visor');
+    visor.value = eval(visor.value);
 }
