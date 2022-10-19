@@ -86,4 +86,32 @@ const limparCalculadora = () => {
 
 //exercicio 6
 
+const digitar =(valor) =>{
+    let visor = document.querySelector('#visor');
+    visor.value += valor;
+}
 
+const apagar =() => {
+    let visor = document.querySelector('#visor');
+    while(true){
+        if(visor.value.length <= 1){
+            visor.value = '';
+            break;
+        }
+
+        let ultimoCaractere = visor.value.substr(visor.value.length-1, 1);
+        visor.value = visor.value.substr(1, visor.value.length-1);
+        if(ultimoCaractere != ' '){
+            break;
+        }
+    }
+}
+
+const limparVisor = () =>{
+    let visor = document.querySelector('#visor');
+    visor.value = '';
+}
+
+const calcularResultado =() => {
+    
+}
