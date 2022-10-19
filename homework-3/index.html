@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -12,15 +12,26 @@
 <body>
     <section class="container">
         <h3>Exercício 01</h3>
-        <label for="">Nota 1</label>
-        <input type="text">
-        <label for="">Nota 2</label>
-        <input type="text">
-        <label for="">Nota 3</label>
-        <input type="text">
-        <button>Calcular média</button>
+        <div class="container form-control text-center">
+            <div class="mb-3" >
+                <label for="">Nota 1</label>
+                <input type="number" id="nota1" placeholder="Digite a nota">
+            </div>
+            <div class="mb-3">
+                <label for="">Nota 2</label>
+                <input type="number" id="nota2" placeholder="Digite a nota">
+            </div>
+            <div class="mb-3">
+                <label for="">Nota 3</label>
+                <input type="number" id="nota3" placeholder="Digite a nota">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-dark" type="button" onclick="calcularMedia()">Calcular média</button>
+            </div>
+            <div id="resultado">Mostrar média</div>
+        </div>
 
-        
+
     </section>
 
     <script src="./js/script.js"></script>
