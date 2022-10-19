@@ -13,11 +13,13 @@ btnAlteraTexto.addEventListener('click', () => {
 
 // Exercício 2
 
-let campoCor = document.querySelector('#cor');
-campoCor.addEventListener('click', () => {
+let campoCor = document.querySelector('#corescolhida');
+campoCor.addEventListener('change', () => {
     let corEscolhida = document.getElementById('corescolhida').value;
     document.querySelector('#cor').style.color = corEscolhida;
 });
+
+
 
 
 //Exercício 3
