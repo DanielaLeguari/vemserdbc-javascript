@@ -1,4 +1,4 @@
-
+//exercicio 1
 const calcularMedia = () => {
     var nota1 = parseFloat(document.getElementById('nota1').value);
     var nota2 = parseFloat(document.getElementById('nota2').value);
@@ -22,9 +22,24 @@ const calcularMedia = () => {
     }
 
 }
+//exercicio 2
+const calculaSoma= () => {
+
+let numero = Number(document.getElementById('numero').value);
+    let somaNumerosPares = 0;
+    let contaPares = 0;
+    while (contaPares < 50) {
+        if (numero % 2 == 0) {
+            somaNumerosPares += numero; 
+            contaPares++;
+        }
+       numero += 1;
+    }
 
 
+    document.getElementById('mostrasoma').innerText = `A soma é ${somaNumerosPares}`;
 
-
+}
+    
 
 
