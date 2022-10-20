@@ -36,12 +36,12 @@ const calculaSoma = () => {
         numero += 1;
     }
 
-
     document.getElementById('mostrasoma').innerText = `A soma é ${somaNumerosPares}`;
 
 }
 
 // exercicio 3
+
 
 
 // exercicio 4
@@ -68,12 +68,25 @@ const escolhaOpcaoMenu = () => {
 
 //exercicio 5
 
+const retornaQtdCarbono = () => {
+    let qtdSubstancia1 = parseFloat(prompt('Digite a quantidade de carbono da primeira substancia: '));
+    let qtdSubstancia2 = parseFloat(prompt('Digite a quantidade de carbono da segunda substancia: '));
+    qtdSubstancia2 += 2;
+
+    if (qtdSubstancia1 == qtdSubstancia2) {
+        alert(' A quantidade de carbono das substancias são iguais!');
+        alert(`Substancia 1 : ${qtdSubstancia1}, substancia 2: ${qtdSubstancia2}`);
+    } else {
+        alert(`Quantidade de carbono da substancia um é ${qtdSubstancia1} e a quantidade de carbono da substancia dois é ${qtdSubstancia2}.`);
+    }
+}
+
 //exercicio 6
 const contaPares = () => {
 
     let pares = '';
-    let numero =0;
-    while (numero <=100) {
+    let numero = 0;
+    while (numero <= 100) {
         if (numero % 2 == 0) {
             pares += numero + '\n';
         }
@@ -88,24 +101,41 @@ const contaPares = () => {
 
 //exercicio 7
 
+
 //exercicio 8
 
+const aumentoSalarial = () => {
+    let anoInicial = 2013;
+    let salarioInicial = 1000;
+    let anoAtual = 2022;
+    let aumentoSalarialPercentual = 1.5;
+    let percentualSalario = 0;
+
+    while (anoInicial <= anoAtual) {
+        if (anoInicial <= 2016) {
+            percentualSalario = (salarioInicial * aumentoSalarialPercentual);
+            salarioInicial = salarioInicial + percentualSalario;
+        }
+        anoInicial++;
+
+    }
+}
+
 //exercicio 9
-
 const mostraFibonacci = () => {
-  let numero1 =0;
-  let numero2 =1;
-  let numero3=0;
-  let resultado = '';
-  let contador = 0;
+    let numero1 = 0;
+    let numero2 = 1;
+    let numero3 = 0;
+    let resultado = '';
+    let contador = 0;
 
-    while(contador <= 20){
-        resultado += numero3 +', ';
-        numero1= numero2;
+    while (contador <= 20) {
+        resultado += numero3 + ', ';
+        numero1 = numero2;
         numero2 = numero3;
         numero3 = numero1 + numero2;
         contador++;
     }
 
-    document.getElementById('fibonacci').innerText= resultado;
+    document.getElementById('fibonacci').innerText = resultado;
 }
