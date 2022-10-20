@@ -83,7 +83,6 @@ const retornaQtdCarbono = () => {
         alert('Você digitou dados inválidos!');
     }
 
-
 }
 
 //exercicio 6
@@ -105,6 +104,14 @@ const contaPares = () => {
 
 
 //exercicio 7
+const mostraIdade = () =>{
+    let idade = parseFloat(prompt("Digite sua idade:"));
+
+    while(isNaN(idade)){
+        idade = parseFloat(prompt("Digite sua idade:"));
+    }
+    alert(`Sua idade é ${idade}`);
+}
 
 
 //exercicio 8
