@@ -79,7 +79,7 @@ const retornaQtdCarbono = () => {
         } else {
             alert(`Quantidade de carbono da substancia um é ${qtdSubstancia1} e a quantidade de carbono da substancia dois é ${qtdSubstancia2}.`);
         }
-    } else{
+    } else {
         alert('Você digitou dados inválidos!');
     }
 
@@ -104,10 +104,10 @@ const contaPares = () => {
 
 
 //exercicio 7
-const mostraIdade = () =>{
+const mostraIdade = () => {
     let idade = parseFloat(prompt("Digite sua idade:"));
 
-    while(isNaN(idade)){
+    while (isNaN(idade)) {
         idade = parseFloat(prompt("Digite sua idade:"));
     }
     alert(`Sua idade é ${idade}`);
@@ -116,21 +116,28 @@ const mostraIdade = () =>{
 
 //exercicio 8
 
-const aumentoSalarial = () => {
+const calculaAumentoSalarial = () => {
+    let mostraAumentoSalarial = document.getElementById('mostraaumentosalarial');
     let anoInicial = 2013;
     let salarioInicial = 1000;
     let anoAtual = 2022;
-    let aumentoSalarialPercentual = 1.5;
-    let percentualSalario = 0;
+    let aumentoSalarialPercentual = 0.015;
+    let percentualSalario = 0.0;
+
 
     while (anoInicial <= anoAtual) {
-        if (anoInicial <= 2016) {
-            percentualSalario = (salarioInicial * aumentoSalarialPercentual);
-            salarioInicial = salarioInicial + percentualSalario;
+        if (anoInicial > 2016) {
+            aumentoSalarialPercentual *= 2;
         }
+        percentualSalario = salarioInicial * aumentoSalarialPercentual;
+        salarioInicial += percentualSalario;
+        mostraAumentoSalarial.innerText += (`Em ${anoInicial}, o percentual de aumento foi do salario foi de ${aumentoSalarialPercentual} resultando em ${percentualSalario.toFixed(2)} reais, salario ${salarioInicial.toFixed(2)}\n`);
         anoInicial++;
 
     }
+
+    let percentualTotal = (salarioInicial * 100) / 1000;
+    mostraAumentoSalarial.innerText += (`Percentual de aumento total comparado a 2013 foi de ${percentualTotal.toFixed(2)}`);
 }
 
 //exercicio 9
