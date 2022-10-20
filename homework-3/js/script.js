@@ -23,23 +23,89 @@ const calcularMedia = () => {
 
 }
 //exercicio 2
-const calculaSoma= () => {
+const calculaSoma = () => {
 
-let numero = Number(document.getElementById('numero').value);
+    let numero = Number(document.getElementById('numero').value);
     let somaNumerosPares = 0;
     let contaPares = 0;
     while (contaPares < 50) {
         if (numero % 2 == 0) {
-            somaNumerosPares += numero; 
+            somaNumerosPares += numero;
             contaPares++;
         }
-       numero += 1;
+        numero += 1;
     }
 
 
     document.getElementById('mostrasoma').innerText = `A soma é ${somaNumerosPares}`;
 
 }
-    
+
+// exercicio 3
 
 
+// exercicio 4
+const escolhaOpcaoMenu = () => {
+    let opcao = prompt('Escolha uma opção do Menu:\n 1-Fazer checkin  \n2-Fazer checkout \n3-Estender hospedagem \n4-Sair');
+    if (opcao == "1") {
+        alert('Bem-vindo!');
+    } else if (opcao == '2') {
+        if (confirm('Tem certeza em fazer checkout?')) {
+            alert('Até a próxima!');
+        }
+    } else if (opcao == "3") {
+        let qtdDias = prompt('Quantos dias gostaria de estender?');
+        if (!isNaN(qtdDias) && Number(qtdDias) > 0) {
+            alert(`A hospedagem foi estendida em ${qtdDias} dias.`);
+        }
+    } else if (opcao == "4") {
+        alert('OK');
+    } else {
+        alert('Opção inválida!');
+    }
+
+}
+
+//exercicio 5
+
+//exercicio 6
+const contaPares = () => {
+
+    let pares = '';
+    let numero =0;
+    while (numero <=100) {
+        if (numero % 2 == 0) {
+            pares += numero + '\n';
+        }
+        numero += 1;
+    }
+    pares += 'FIM';
+
+    document.getElementById('pares').innerText = pares;
+
+}
+
+
+//exercicio 7
+
+//exercicio 8
+
+//exercicio 9
+
+const mostraFibonacci = () => {
+  let numero1 =0;
+  let numero2 =1;
+  let numero3=0;
+  let resultado = '';
+  let contador = 0;
+
+    while(contador <= 20){
+        resultado += numero3 +', ';
+        numero1= numero2;
+        numero2 = numero3;
+        numero3 = numero1 + numero2;
+        contador++;
+    }
+
+    document.getElementById('fibonacci').innerText= resultado;
+}
