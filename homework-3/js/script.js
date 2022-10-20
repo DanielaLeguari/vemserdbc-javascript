@@ -41,8 +41,16 @@ const calculaSoma = () => {
 }
 
 // exercicio 3
-
-
+const iniciarCronometro = () => {
+    let cronometro = document.getElementById('cronometro');
+    let contador = 0;
+    let tempo = setInterval(function () {
+        if (contador >= 60) {
+            clearInterval(tempo);
+        }
+        cronometro.innerText = contador++;
+    }, 1000);
+}
 
 // exercicio 4
 const escolhaOpcaoMenu = () => {
@@ -124,7 +132,6 @@ const calculaAumentoSalarial = () => {
     let aumentoSalarialPercentual = 0.015;
     let percentualSalario = 0.0;
 
-
     while (anoInicial <= anoAtual) {
         if (anoInicial > 2016) {
             aumentoSalarialPercentual *= 2;
@@ -133,7 +140,6 @@ const calculaAumentoSalarial = () => {
         salarioInicial += percentualSalario;
         mostraAumentoSalarial.innerText += (`Em ${anoInicial}, o percentual de aumento foi do salario foi de ${aumentoSalarialPercentual} resultando em ${percentualSalario.toFixed(2)} reais, salario ${salarioInicial.toFixed(2)}\n`);
         anoInicial++;
-
     }
 
     let percentualTotal = (salarioInicial * 100) / 1000;
