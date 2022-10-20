@@ -65,7 +65,6 @@ const escolhaOpcaoMenu = () => {
     }
 
 }
-
 //exercicio 5
 
 const retornaQtdCarbono = () => {
@@ -73,12 +72,18 @@ const retornaQtdCarbono = () => {
     let qtdSubstancia2 = parseFloat(prompt('Digite a quantidade de carbono da segunda substancia: '));
     qtdSubstancia2 += 2;
 
-    if (qtdSubstancia1 == qtdSubstancia2) {
-        alert(' A quantidade de carbono das substancias são iguais!');
-        alert(`Substancia 1 : ${qtdSubstancia1}, substancia 2: ${qtdSubstancia2}`);
-    } else {
-        alert(`Quantidade de carbono da substancia um é ${qtdSubstancia1} e a quantidade de carbono da substancia dois é ${qtdSubstancia2}.`);
+    if (!isNaN(qtdSubstancia1) && !isNaN(qtdSubstancia2)) {
+        if (qtdSubstancia1 == qtdSubstancia2) {
+            alert(' A quantidade de carbono das substancias são iguais!');
+            alert(`Substancia 1 : ${qtdSubstancia1}, substancia 2: ${qtdSubstancia2}`);
+        } else {
+            alert(`Quantidade de carbono da substancia um é ${qtdSubstancia1} e a quantidade de carbono da substancia dois é ${qtdSubstancia2}.`);
+        }
+    } else{
+        alert('Você digitou dados inválidos!');
     }
+
+
 }
 
 //exercicio 6
