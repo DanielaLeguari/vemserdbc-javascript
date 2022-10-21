@@ -20,6 +20,62 @@ const mostraPares = () => {
     }
 }
 
+//exercício 4
+const game = () => {
+    const game = [{
+        idade: 'Trevas',
+        item: 'Ouro',
+        sacas: 45
+    }, {
+        idade: 'Trevas',
+        item: 'Prata',
+        sacas: 56
+    }, {
+        idade: 'Trevas',
+        item: 'Madeira',
+        sacas: 236
+    }, {
+        idade: 'Trevas',
+        item: 'Pedra',
+        sacas: 458
+    }, {
+        idade: 'Castelos',
+        item: 'Ouro',
+        sacas: 345
+    }, {
+        idade: 'Castelos',
+        item: 'Prata',
+        sacas: 568
+    }, {
+        idade: 'Castelos',
+        item: 'Madeira',
+        sacas: 789
+    }, {
+        idade: 'Castelos',
+        item: 'Pedra',
+        sacas: 897
+    }
+    ];
+
+    let trevas = game.filter(item => item.idade == 'Trevas');
+    document.getElementById('exercicio4').innerText = 'Objetos do meu inventário Idade das Trevas\n';
+    trevas.forEach(jogo => {
+        document.getElementById('exercicio4').innerText += `${jogo.item} => ${jogo.sacas} sacas \n`
+    });
+
+    let castelo = game.filter(item => item.idade == 'Castelos');
+    document.getElementById('exercicio4').innerText += 'Objetos do meu inventário- Idade dos Castelos. \n';
+    castelo.forEach(jogo => {
+        document.getElementById('exercicio4').innerText += `${jogo.item} => ${jogo.sacas} sacas.\n`
+    });
+
+    let totalSacas = 0;
+    trevas.forEach(jogo => totalSacas += jogo.sacas);
+
+    document.getElementById('exercicio4').innerText += `Na "Idade das Trevas" o status do meu inventário é:\nTotal de ${trevas.length} tipos de itens com: ${totalSacas} sacas.`
+
+}
+
 // exercicio 03
 const alteraArray = () => {
     let lista1 = ['banana', 'maça', 'pera', 'uva', 'abacate', 'melancia', 'laranja', 'mamão'];
@@ -42,6 +98,60 @@ const cardapio = () => {
     document.getElementById('queijos').innerText += `Lista Atualizada: ${queijos.join(', ')}\n`;
 }
 
+//exercicio 06
+
+const biblioteca = () => {
+    const livros = [{
+        id: 1,
+        categoria: "Terror",
+        titulo: "It"
+    },
+    {
+        id: 2,
+        categoria: "Terror",
+        titulo: "O Exorcista"
+    },
+    {
+        id: 3,
+        categoria: "Terror",
+        titulo: "Drácula"
+    },
+    {
+        id: 4,
+        categoria: "Romance",
+        titulo: "O morro dos ventos Uivantes"
+    },
+    {
+        id: 5,
+        categoria: "Policial",
+        titulo: "O silêncio dos Inocentes"
+    },
+    {
+        id: 6,
+        categoria: "Suspense",
+        titulo: "Boneco de Neve"
+    },
+    {
+        id: 7,
+        categoria: "Suspense",
+        titulo: "Bird Box"
+    },
+    {
+        id: 8,
+        categoria: "Romance",
+        titulo: "Orgulho e Preconceito"
+    }
+    ];
+
+    const tituloLivros = livros
+        .map(livro => livro.titulo);
+    document.getElementById('exercicio6').innerText = `O catálogo é composto por: ${tituloLivros.join(', ')}.\n`;
+
+    const categoriaTerror = livros
+        .filter(livro => livro.categoria == "Terror").map(livro => livro.titulo);
+    document.getElementById('exercicio6').innerText += `Catálogo da categoria de terror: ${categoriaTerror.join(', ')}.`;
+
+}
 
 //exercicio 07
 
@@ -54,6 +164,52 @@ const mostraMedalha = () => {
         document.getElementById('exercicio7').innerText += `Posição no campeonato: ${indice + 1}º lugar --> ${valor}\n`;
     });
 
+}
+
+//Exercicio 8
+const conjuntos = () => {
+    const conjuntoA = [2, 4, 6, 7, 8, 22, 45, 34, 89, 75, 62, 54];
+    const conjuntoB = [22, 23, 57, 45, 77, 62, 56, 54, 97, 88, 33, 5];
+    let uniao = [];
+
+    uniao = uniao.concat(conjuntoB);
+
+    for (let i = 0; i < conjuntoA.length; i++) {
+        //indexOf retorna -1 quando não encontrar o elemento
+        const posicaoElemento = uniao.indexOf(conjuntoA[i]);
+        const encontrouElemento = posicaoElemento >= 0;
+        if (!encontrouElemento) {
+            uniao.push(conjuntoA[i]);
+        }
+    }
+
+    document.getElementById('exercicio8').innerText = `A união dos conjuntos é ${uniao.sort(((a, b) => a > b ? 1 : -1)).join(', ')}\n`;
+
+    let intersecao = [];
+    for (let i = 0; i < conjuntoB.length; i++) {
+        for (let j = 0; j < conjuntoA.length; j++) {
+            if (conjuntoB[i] === conjuntoA[j]) {
+                intersecao.push(conjuntoB[i]);
+            }
+        }
+    }
+
+    document.getElementById('exercicio8').innerText += `A interseção é ${intersecao.join(', ')}\n`;
+
+    let diferenca = [];
+    for (let i = 0; i < conjuntoB.length; i++) {
+        let encontrou = false;
+        for (let j = 0; j < conjuntoA.length; j++) {
+            if (conjuntoB[i] === conjuntoA[j]) {
+                encontrou = true;
+            }
+        }
+        if (!encontrou) {
+            diferenca.push(conjuntoB[i]);
+        }
+    }
+
+    document.getElementById('exercicio8').innerText += `A diferença é ${diferenca.sort(((a, b) => a > b ? 1 : -1)).join(', ')}`;
 }
 
 //Exercicio 10
