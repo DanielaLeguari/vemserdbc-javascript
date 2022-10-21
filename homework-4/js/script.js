@@ -89,13 +89,13 @@ const alteraArray = () => {
 // exercicio 5
 const cardapio = () => {
     let queijos = ['Mussarela', 'Minas', 'Parmesão', 'Prato', 'Gorgonzola'];
-    document.getElementById('queijos').innerText = `Cardápio de queijos: ${queijos.join(', ')}\n`;
+    document.getElementById('queijos').innerText = `Cardápio de queijos: \n${queijos.join(', ')}\n\n`;
     queijos.push('Mascarpone', 'Ricota', 'Provolone');
-    document.getElementById('queijos').innerText += `Lista Atualizada: ${queijos.join(', ')}\n`;
+    document.getElementById('queijos').innerText += `Lista Atualizada: \n${queijos.join(', ')}\n\n`;
     queijos = queijos.sort();
-    document.getElementById('queijos').innerText += `Lista Atualizada em ordem alfabética: ${queijos.join(', ')}\n`;
+    document.getElementById('queijos').innerText += `Lista Atualizada em ordem alfabética: \n${queijos.join(', ')}\n\n`;
     queijos.unshift('Cottage');
-    document.getElementById('queijos').innerText += `Lista Atualizada: ${queijos.join(', ')}\n`;
+    document.getElementById('queijos').innerText += `Lista Atualizada: \n${queijos.join(', ')}\n`;
 }
 
 //exercicio 06
@@ -145,11 +145,11 @@ const biblioteca = () => {
 
     const tituloLivros = livros
         .map(livro => livro.titulo);
-    document.getElementById('exercicio6').innerText = `O catálogo é composto por: ${tituloLivros.join(', ')}.\n`;
+    document.getElementById('exercicio6').innerText = `O catálogo é composto por: \n${tituloLivros.join(', ')}.\n\n`;
 
     const categoriaTerror = livros
         .filter(livro => livro.categoria == "Terror").map(livro => livro.titulo);
-    document.getElementById('exercicio6').innerText += `Catálogo da categoria de terror: ${categoriaTerror.join(', ')}.`;
+    document.getElementById('exercicio6').innerText += `Catálogo da categoria de terror: \n${categoriaTerror.join(', ')}.`;
 
 }
 
@@ -183,7 +183,7 @@ const conjuntos = () => {
         }
     }
 
-    document.getElementById('exercicio8').innerText = `A união dos conjuntos é ${uniao.sort(((a, b) => a > b ? 1 : -1)).join(', ')}\n`;
+    document.getElementById('exercicio8').innerText = `A união dos conjuntos é \n${uniao.sort(((a, b) => a > b ? 1 : -1)).join(', ')}\n\n`;
 
     let intersecao = [];
     for (let i = 0; i < conjuntoB.length; i++) {
@@ -194,7 +194,7 @@ const conjuntos = () => {
         }
     }
 
-    document.getElementById('exercicio8').innerText += `A interseção é ${intersecao.join(', ')}\n`;
+    document.getElementById('exercicio8').innerText += `A interseção é \n${intersecao.join(', ')}\n\n`;
 
     let diferenca = [];
     for (let i = 0; i < conjuntoB.length; i++) {
@@ -209,7 +209,106 @@ const conjuntos = () => {
         }
     }
 
-    document.getElementById('exercicio8').innerText += `A diferença é ${diferenca.sort(((a, b) => a > b ? 1 : -1)).join(', ')}`;
+    document.getElementById('exercicio8').innerText += `A diferença é \n${diferenca.sort(((a, b) => a > b ? 1 : -1)).join(', ')}`;
+}
+
+//Exercicio 9
+
+const listaPedidos = () => {
+
+    const pedidosDoDia = [{
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Calabresa",
+        cliente: "Claudino"
+    },
+    {
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Mafiosa",
+        cliente: "Maribela"
+    },
+    {
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Calabresa",
+        cliente: "Pafuncio"
+    },
+    {
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Mussarela",
+        cliente: "Maribela"
+    },
+    {
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Quatro Queijos",
+        cliente: "Olimpo"
+    },
+    {
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Mussarela",
+        cliente: "Jacinto"
+    },
+    {
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Quatro Queijos",
+        cliente: "Pafuncio"
+    },
+    {
+        identificacaoPedido: 'pizza',
+        produto: "Pizza Quatro Queijos",
+        cliente: "Felisberta"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "refrigerante",
+        cliente: "Claudino"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "refrigerante",
+        cliente: "Maribela"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "refrigerante",
+        cliente: "Jacinto"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "refrigerante",
+        cliente: "Olimpo"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "suco",
+        cliente: "Pafuncio"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "suco",
+        cliente: "Felisberta"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "cerveja",
+        cliente: "Pafuncio"
+    },
+    {
+        identificacaoPedido: 'bebida',
+        produto: "cerveja",
+        cliente: "Felisberta"
+    },
+    ];
+
+    let pedidosPizza = pedidosDoDia.filter(item => item.identificacaoPedido === 'pizza').map(pizza => pizza.produto);
+    document.getElementById('exercicio9').innerText = `Pedidos de pizza de hoje:\n ${pedidosPizza.join(', ')}\n\n`;
+
+    let clientesRefri = pedidosDoDia.filter(item => item.produto === 'refrigerante').map(bebida => bebida.cliente);
+    document.getElementById('exercicio9').innerText += `Clientes que pediram refrigerante: \n${clientesRefri.join(', ')}\n`;
+
+    let clientesSuco = pedidosDoDia.filter(item => item.produto === 'suco').map(bebida => bebida.cliente);
+    document.getElementById('exercicio9').innerText += `Clientes que pediram suco: \n${clientesSuco.join(', ')}\n\n`;
+
+    let clientesCerveja = pedidosDoDia.filter(item => item.produto === 'cerveja').map(bebida => bebida.cliente);
+    document.getElementById('exercicio9').innerText += `Clientes que pediram cerveja: \n${clientesCerveja.join(', ')}\n`;
 }
 
 //Exercicio 10
