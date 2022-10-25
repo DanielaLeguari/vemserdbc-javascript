@@ -93,7 +93,7 @@ btnAdicionarNome.addEventListener('click', () => {
 
 });
 
-const sortear = async () => {
+const sortear = () => {
     let erroSorteio = document.getElementById('erroSorteio');
     erroSorteio.innerText = '';
     try {
@@ -114,11 +114,11 @@ const sortear = async () => {
             } else {
                 posicaoNome++;
             }
-            // console.log(`intervalo ${listaNomes[posicaoNome]}`);
+            document.getElementById('resultadoSorteio').innerText = `Resultado do sorteio: ${listaNomes[posicaoNome]}`;
         }, velocidade);
         setTimeout(() => {
             clearInterval(interval);
-            document.getElementById('resultadoSorteio').innerText = `Resultado do sorteio: ${listaNomes[posicaoNome]}`;
+            
         }, tempo);
     } catch (err) {
         erroSorteio.innerText = err;
